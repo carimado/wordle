@@ -4,9 +4,120 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles.css">
     <title>Wordle | Clarence Arimado</title>
 </head>
 <body>
-    
+    <nav>
+        <h1>Wordle</h1>
+    </nav>
+    <section class="container">
+        <div class="tiles-container" id="tiles-container">
+            <div class="tile-row" id="row--0">
+                <div class="tile" id="0"></div>
+                <div class="tile" id="1"></div>
+                <div class="tile" id="2"></div>
+                <div class="tile" id="3"></div>
+                <div class="tile" id="4"></div>
+            </div>
+            <div class="tile-row" id="row--1">
+                <div class="tile" id="5"></div>
+                <div class="tile" id="6"></div>
+                <div class="tile" id="7"></div>
+                <div class="tile" id="8"></div>
+                <div class="tile" id="9"></div>
+            </div>
+            <div class="tile-row" id="row--2">
+                <div class="tile" id="10"></div>
+                <div class="tile" id="11"></div>
+                <div class="tile" id="12"></div>
+                <div class="tile" id="13"></div>
+                <div class="tile" id="14"></div>
+            </div>
+            <div class="tile-row" id="row--3">
+                <div class="tile" id="15"></div>
+                <div class="tile" id="16"></div>
+                <div class="tile" id="17"></div>
+                <div class="tile" id="18"></div>
+                <div class="tile" id="19"></div>
+            </div>
+            <div class="tile-row" id="row--4">
+                <div class="tile" id="20"></div>
+                <div class="tile" id="21"></div>
+                <div class="tile" id="22"></div>
+                <div class="tile" id="23"></div>
+                <div class="tile" id="24"></div>
+            </div>
+            <div class="tile-row" id="row--5">
+                <div class="tile" id="25"></div>
+                <div class="tile" id="26"></div>
+                <div class="tile" id="27"></div>
+                <div class="tile" id="28"></div>
+                <div class="tile" id="29"></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="keyboard-container">
+        <div class="keyboard">
+            <div class="row" id="row-0">
+                <button class="key upper">q</button>
+                <button class="key upper">w</button>
+                <button class="key upper">e</button>
+                <button class="key upper">r</button>
+                <button class="key upper">t</button>
+                <button class="key upper">y</button>
+                <button class="key upper">u</button>
+                <button class="key upper">i</button>
+                <button class="key upper">o</button>
+                <button class="key upper">p</button>
+            </div>
+            <div class="row" id="row-1">
+                <button class="key upper">a</button>
+                <button class="key upper">s</button>
+                <button class="key upper">d</button>
+                <button class="key upper">f</button>
+                <button class="key upper">g</button>
+                <button class="key upper">h</button>
+                <button class="key upper">j</button>
+                <button class="key upper">k</button>
+                <button class="key upper">l</button>
+            </div>
+            <div class="row" id="row-2">
+                <button class="backspace dark-key" id="backspace">DEL</button>
+                <button class="key upper">z</button>
+                <button class="key upper">x</button>
+                <button class="key upper">c</button>
+                <button class="key upper">v</button>
+                <button class="key upper">b</button>
+                <button class="key upper">n</button>
+                <button class="key upper">m</button>
+                <button class="enter" id="enter">ENTER</button>
+            </div>
+        </div>
+    </section>
+
+    <div id="win-state" hidden>
+        <div class="outcome-state-container">
+
+            <h2>🥳 You Win! 🥳</h2>
+            <button class="play-again" id="play-again">Play Again?</button>
+            <div class="firework"></div>
+            <div class="firework"></div>
+            <div class="firework"></div>
+            
+        </div>
+    </div>
+
+    <div id="lose-state" hidden>
+        <div class="outcome-state-container">
+
+            <h2>😂 You LOSE 😂</h2>
+            <button class="play-again" id="play-again">Play Again?</button>
+
+        </div>
+    </div>
+    <script src="./data.js"></script>
+    <script src="./scriptv2.js"></script>
 </body>
 </html>
