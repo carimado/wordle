@@ -2,7 +2,7 @@ const keys = document.getElementsByClassName('key');
 let tilePosition = 0;
 let rowPosition = 0;
 let randomNumber = Math.floor(Math.random() * validWords.length);
-let randomWord = validWords[randomNumber];
+let randomWord = 'APPLE' //validWords[randomNumber];
 let userWord = '';
 
 function startGame() {
@@ -40,7 +40,7 @@ function displayTile(char) {
         tileElement.textContent = char.textContent;
         userWord = userWord + char.textContent.toUpperCase();
         tileElement.classList.add('char')
-        console.log(tilePosition)
+        tileElement.classList.add('popout-animation')
     }
 
 }
@@ -63,13 +63,12 @@ function pressEnter() {
 
 function pressBackspace() {
 
-    if (tilePosition >= 0) {
-        let PrevTileElement = document.getElementById(tilePosition);
-        PrevTileElement.textContent = '';
+    if (tilePosition > 0) {
+        // Minus before the actual element
         tilePosition = tilePosition - 1;
+        let PrevTileElement = document.getElementById(tilePosition + rowPosition);
+        PrevTileElement.textContent = '';
         userWord = userWord.substring(0, userWord.length - 1)
-        console.log(userWord)
-        console.log(PrevTileElement)
     }
 }
 
@@ -146,10 +145,6 @@ document.getElementById('play-again').addEventListener('click', function () {
     resetGame();
 
 })
-
-function playAgain() {
-    
-}
 
 
 
