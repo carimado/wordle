@@ -1,26 +1,8 @@
-// FUNCTION ANALOGY
-// HEART (get oxygen) > LUNG (how much) > MOUTH()
- 
-// Steps:
-// Get Keyboard Character Keys Working - DONE
-// Get Keyboard to Display in Each Tile - DONE
-// Get Backspace Working (Minus the Position on the Board) - DONE
-// Get Enter Working - DONE
-//      - Function to Check the UserInput vs Random Word - DONE
-// Get 1 ROW working FUCK - DONE
-// Get Finish Game Logic to Work - DONE
-// Keyboard States - DONE
-// Spruce up the styles - DONE
-// Win State - DONE
-// Lose State - 
-// Reset Game - DONE
-// Get actual keyboard inputs to work - 
-
 const keys = document.getElementsByClassName('key');
 let tilePosition = 0;
 let rowPosition = 0;
 let randomNumber = Math.floor(Math.random() * validWords.length);
-let randomWord = 'ARRAY' //validWords[randomNumber];
+let randomWord = validWords[randomNumber];
 let userWord = '';
 
 function startGame() {
@@ -58,7 +40,7 @@ function displayTile(char) {
         tileElement.textContent = char.textContent;
         userWord = userWord + char.textContent.toUpperCase();
         tileElement.classList.add('char')
-        // console.log(tilePosition)
+        console.log(tilePosition)
     }
 
 }
@@ -66,7 +48,8 @@ function displayTile(char) {
 function pressEnter() {
 
     if (rowPosition >= 25) {
-        alert('youlose')
+        document.getElementById('lose-state').removeAttribute('hidden')
+        playAgain();
         return;
     }
 
@@ -80,13 +63,13 @@ function pressEnter() {
 
 function pressBackspace() {
 
-    if (tilePosition <= 4) {
-        let tileElement = document.getElementById(String(tilePosition + rowPosition));
+    if (tilePosition >= 0) {
+        let PrevTileElement = document.getElementById(tilePosition);
+        PrevTileElement.textContent = '';
         tilePosition = tilePosition - 1;
-        tileElement.textContent = '';
-        userWord = '';
-    } else {
-        tilePosition = 0;
+        userWord = userWord.substring(0, userWord.length - 1)
+        console.log(userWord)
+        console.log(PrevTileElement)
     }
 }
 
@@ -125,7 +108,7 @@ function submitGuess() {
                     }
                 }
 
-                if (randomWord[i] === userWord[i] && tilePosition != true) {
+                if (randomWord[i] == userWord[i] && tilePosition != true) {
                     document.getElementById(String(rowPosition+i)).classList.add('greyTile')
                 }
 
@@ -148,9 +131,9 @@ function submitGuess() {
 
 function resetGame() {
 
-    tilePosition = 0;
-    rowPosition = 0;
-    userWord = '';
+    // tilePosition = 0;
+    // rowPosition = 0;
+    // userWord = '';
     location.reload()
 
 }
@@ -163,6 +146,27 @@ document.getElementById('play-again').addEventListener('click', function () {
     resetGame();
 
 })
+
+function playAgain() {
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
