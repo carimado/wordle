@@ -27,12 +27,13 @@ Project Plan:
         - If match, Green; if wrong position, Yellow; if incorrect, Dark Grey - ✅
 
 - [ ] Make it legit!
-    1. Align Everything - ✅
+    1. Align Everything (CSS) - ✅
     2. Create Modals for Win/Lose State (HTML / CSS) - ✅
     4. Popout animaton when tiles are displayed - ✅
     5. Reset Game (JS) - 
     6. Flip and Shake Tiles (CSS / JS) - 
     7. How To Play Modal (HTML / CSS / JS) - 
     8. Listen for keyup on Keyboard - 
+    9. User to use only valid words - 
 
 ✓✓✓✓✓

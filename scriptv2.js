@@ -5,6 +5,7 @@ let randomNumber = Math.floor(Math.random() * validWords.length);
 let randomWord = 'APPLE' //validWords[randomNumber];
 let userWord = '';
 
+// Function to initialise the game
 function startGame() {
 
     for (let key of keys) {
@@ -15,12 +16,13 @@ function startGame() {
 
     document.getElementById('backspace').addEventListener('click', pressBackspace);
 
-    document.addEventListener('keydown', (event) => {displayTile(event)})
+    // document.addEventListener('keydown', (event) => {displayTile(event)})
 
 }
 
 startGame()
 
+// Accepts keyboard events (click) and runs displayTile function
 function keyboardInput(event) {
 
     let clickedElement = event.target
@@ -32,6 +34,7 @@ function keyboardInput(event) {
     
 }
 
+// Accepts character input, creates and displays tiles on each click.
 function displayTile(char) {
 
     if (tilePosition <= 4) {
@@ -45,6 +48,7 @@ function displayTile(char) {
 
 }
 
+// Checks the row position and increments by 5. Runs submitGuess function for logic check.
 function pressEnter() {
 
     if (rowPosition >= 25) {
@@ -61,6 +65,7 @@ function pressEnter() {
 
 }
 
+// Backspace only works if condition is met. Decrements tilePosition and empties the textcontent and userWord.
 function pressBackspace() {
 
     if (tilePosition > 0) {
@@ -72,6 +77,7 @@ function pressBackspace() {
     }
 }
 
+// Logic Check
 function submitGuess() {
 
     // IF CORRECT WORD / RANDOM WORD
@@ -128,16 +134,26 @@ function submitGuess() {
 
 }
 
+// Resets the game by reload. WIP - to reset game without reloading.
 function resetGame() {
 
     // tilePosition = 0;
     // rowPosition = 0;
     // userWord = '';
+
+    // let tilesReset = document.getElementsByClassName('tile')
+
+    // for (let tiles of tilesReset) {
+    //     tiles.classList.remove('char')
+    //     tiles.classList.remove('popout-animation')
+    // }
+
+    // document.getElementById(String(rowPosition+i)).classList.remove('greenTile')
     location.reload()
 
 }
 
-// Play Again Button
+// Play Again Button for Modal
 document.getElementById('play-again').addEventListener('click', function () {
 
     document.getElementById('win-state').setAttribute('hidden', false);
