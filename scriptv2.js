@@ -2,7 +2,8 @@ const keys = document.getElementsByClassName('key');
 let tilePosition = 0;
 let rowPosition = 0;
 let randomNumber = Math.floor(Math.random() * validWords.length);
-let randomWord = 'APPLE' //validWords[randomNumber];
+let randomWord = validWords[randomNumber];
+// let randomUpperCaseWord = randomWord.toUpperCase();
 let userWord = '';
 
 // Function to initialise the game
@@ -77,7 +78,7 @@ function pressBackspace() {
     }
 }
 
-// Logic Check
+// Logic Check (2 cases of matches, green and yellow, else green)
 function submitGuess() {
 
     // IF CORRECT WORD / RANDOM WORD
@@ -161,37 +162,6 @@ document.getElementById('play-again').addEventListener('click', function () {
     resetGame();
 
 })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Win / Lose State:
-// If Win - Modal Pops Up
-// If Lose - Reset everything
-
-
-
-// Clarence's Notes: 
-// - 
-// - 
-// - 
-
 
 
     // --- Loop goes in here
