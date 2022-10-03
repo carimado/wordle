@@ -32,12 +32,18 @@ Project Plan:
     1. Align Everything (CSS) - ✅
     2. Create Modals for Win/Lose State (HTML / CSS) - ✅
     4. Popout animaton when tiles are displayed - ✅
-    5. User to only use Valid Words - 
+    5. User to only accept Valid (acceptable) Words - 
     6. Reset Game (JS) - 
     7. Flip and Shake Tiles (CSS / JS) - 
     8. How To Play Modal (HTML / CSS / JS) - 
     9. Listen for keyup on Keyboard - 
     10. User to use only valid words - 
+
+- [ ] Make it my own!
+    1. Change up the styles (e.g Win / Lose state)
+    2. Add array of possible words to loop through to display incorrect guess
+    3. Add a hint button
+    4. Pushdown on keys
 
 ✓✓✓✓✓
 __________________________

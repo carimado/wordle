@@ -2,11 +2,11 @@ const keys = document.getElementsByClassName('key');
 let tilePosition = 0;
 let rowPosition = 0;
 let randomNumber = Math.floor(Math.random() * validWords.length);
-let randomWord = validWords[randomNumber];
+let randomWord = 'APPLE' // validWords[randomNumber];
 // let randomUpperCaseWord = randomWord.toUpperCase();
 let userWord = '';
 
-// Function to initialise the game
+// Function to initialise the game (listens for the keyboard inputs)
 function startGame() {
 
     for (let key of keys) {
@@ -26,16 +26,18 @@ startGame()
 // Accepts keyboard events (click) and runs displayTile function
 function keyboardInput(event) {
 
+    // gets element that triggers this event
     let clickedElement = event.target
     
     if (clickedElement) {
         displayTile(clickedElement)
         return
     }
+
     
 }
 
-// Accepts character input, creates and displays tiles on each click.
+// Accepts character input, creates and displays tiles on each click. Only accepts 5 keys!
 function displayTile(char) {
 
     if (tilePosition <= 4) {
@@ -95,7 +97,10 @@ function submitGuess() {
             // ITS IN THE RIGHT POSITION (GREEN)
             if (randomWord[i] === userWord[i]) {
 
-                document.getElementById(String(rowPosition+i)).classList.add('greenTile')
+                const styleElement = document.getElementById(String(rowPosition+i))
+                styleElement.classList.add('greenTile')
+
+                flipTile(styleElement, "green")
 
                 for (let key of keys) {
                     if (userWord[i] === key.textContent.toUpperCase()) {
@@ -114,9 +119,9 @@ function submitGuess() {
                     }
                 }
 
-                if (randomWord[i] == userWord[i] && tilePosition != true) {
-                    document.getElementById(String(rowPosition+i)).classList.add('greyTile')
-                }
+                // if (randomWord[i] == userWord[i] && tilePosition != true) {
+                //     document.getElementById(String(rowPosition+i)).classList.add('greyTile')
+                // }
 
                 
             }
@@ -162,6 +167,21 @@ document.getElementById('play-again').addEventListener('click', function () {
     resetGame();
 
 })
+
+
+function flipTile(tile) {
+
+    tile.style.transition = "1s ease-in"
+    tile.style.transform = "rotateX(90deg)"
+
+    setTimeout(() => {
+        tile.style.transform = "rotateX(0deg)"
+        //tile.style.backgroundColor = color
+    }, 1000)
+
+
+
+}
 
 
     // --- Loop goes in here
